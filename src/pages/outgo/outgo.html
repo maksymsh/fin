@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="primary" (click)="doLogout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+      <button ion-button icon-only color="primary" (click)="openMenu()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>Витрати</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label>Період</ion-label>
+      <ion-select [(ngModel)]="period" interface="popover" (ionChange)="periodChange()">
+        <ion-option value="today">Сьогодні</ion-option>
+        <ion-option value="yesterday">Вчора</ion-option>
+        <ion-option value="week">Тиждень</ion-option>
+        <ion-option value="month">Місяць</ion-option>
+        <ion-option value="manual">Вибрати</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-list ion-row *ngIf="period == 'manual'">
+
+    <ion-item col-6>
+      <ion-label>Від</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="dateFrom"></ion-datetime>
+    </ion-item>
+    <ion-item col-6>
+      <ion-label>До</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="dateTo"></ion-datetime>
+    </ion-item>
+    <ion-item></ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="outgoByType">
+    <ion-item *ngFor="let obt of outgoByType">
+      <h2>{{ obt.name }}</h2>
+
+      <p item-end>{{ obt.amount }}</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="outgos">
+
+
+    <ion-item *ngFor="let outgo of outgos">
+      <h2>{{ outgo.amount }}</h2>
+      <p>{{ outgo.typeName }}</p>
+
+      <p item-end>{{ outgo.time | date }}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

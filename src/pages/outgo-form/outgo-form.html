@@ -1,0 +1,44 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="primary" type="submit" form="outgo-form">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>outgo-form</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form id="outgo-form" [formGroup]="outgoForm" (ngSubmit)="addOutgo()" *ngIf="outgoTypes">
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>Сума</ion-label>
+        <ion-input type="number" formControlName="amount"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Категорія</ion-label>
+        <ion-select formControlName="type" interface="popover" (ionChange)="changeCategory()">
+          <ion-option *ngFor="let type of outgoTypes" [value]="type.key">{{ type.name }}</ion-option>
+          <ion-option value="0">Нова категорія</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="manualType">
+        <ion-label floating>Назва</ion-label>
+        <ion-input type="text" formControlName="type_manual"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+
+
+  </form>
+</ion-content>

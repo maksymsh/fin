@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="primary" type="submit" form="todo-form">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>todo-form</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form id="todo-form" [formGroup]="todoForm" (ngSubmit)="addTodo()">
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>Назва</ion-label>
+        <ion-input type="text" formControlName="title"></ion-input>
+      </ion-item>
+
+	<ion-item>
+        <ion-label floating>Коментар</ion-label>
+        <ion-textarea formControlName="comment"></ion-textarea>
+      </ion-item>
+    </ion-list>
+
+
+
+  </form>
+</ion-content>

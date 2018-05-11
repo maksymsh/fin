@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+            <button ion-button icon-only color="primary" type="submit" form="dept-form">
+                <ion-icon name="checkmark"></ion-icon>
+            </button>
+        </ion-buttons>
+        <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+        <ion-title>Борги</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <form id="dept-form" [formGroup]="deptForm" (ngSubmit)="addDept()">
+
+        <ion-list>
+
+            <ion-item>
+                <ion-label floating>Сума</ion-label>
+                <ion-input type="number" formControlName="amount"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Коментар</ion-label>
+                <ion-input type="text" formControlName="comment"></ion-input>
+            </ion-item>
+
+        </ion-list>
+
+
+    </form>
+</ion-content>

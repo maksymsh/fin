@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+            <button ion-button icon-only color="primary" (click)="doLogout()">
+                <ion-icon name="log-out"></ion-icon>
+            </button>
+            <button ion-button icon-only color="primary" (click)="openMenu()">
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-buttons>
+        <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+        <ion-title>Борги</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list *ngIf="depts">
+
+        <ion-item *ngFor="let dept of depts">
+            <h2>{{ dept.amount }}</h2>
+            <p>{{ dept.comment }}</p>
+
+            <p item-end>{{ dept.time | date }}</p>
+        </ion-item>
+    </ion-list>
+</ion-content>

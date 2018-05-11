@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="primary" type="submit" form="tobuy-form">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>tobuy-form</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form id="tobuy-form" [formGroup]="tobuyForm" (ngSubmit)="addTobuy()">
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>Назва</ion-label>
+        <ion-input type="text" formControlName="title"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label floating>Ціна</ion-label>
+        <ion-input type="number" formControlName="price"></ion-input>
+      </ion-item>
+
+	<ion-item>
+        <ion-label floating>Коментар</ion-label>
+        <ion-textarea formControlName="comment"></ion-textarea>
+      </ion-item>
+    </ion-list>
+
+
+
+  </form>
+</ion-content>

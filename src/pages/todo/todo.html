@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="primary" (click)="doLogout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+      <button ion-button icon-only color="primary" (click)="openMenu()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>Зробити</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list *ngIf="todos">
+
+    <ion-item *ngFor="let todo of todos">
+      <h2>{{ todo.title }}</h2>
+      <p>{{ todo.comment }}</p>
+
+      <p item-end>{{ todo.time | date }}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,14 +1,44 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-toolbar>
+        <ion-buttons start>
+            <button ion-button icon-only color="primary" (click)="doLogout()">
+                <ion-icon name="log-out"></ion-icon>
+            </button>
+            <button ion-button icon-only color="primary" (click)="openMenu()">
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-buttons>
+        <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+        <ion-title>NERPA</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <h2>Витрати</h2>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 ion-item>
+        <p float-left>Cьогодні</p>
+        <p item-end>{{ outgo_today }}</p>
+      </ion-col>
+      <ion-col col-6 ion-item>
+        <p float-left>Місяць</p>
+        <p item-end>{{ outgo_month }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 ion-item>
+        <p float-left>Тиждень</p>
+        <p float-right>{{ outgo_week }}</p>
+      </ion-col>
+      <ion-col col-6 ion-item>
+        <p float-left>Рік</p>
+        <p float-right>{{ outgo_year }}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
 </ion-content>

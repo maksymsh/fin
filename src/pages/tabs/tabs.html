@@ -1,0 +1,28 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>NERPA</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button ion-item menuClose (click)="openPage(homePage)">
+        Статистика
+      </button>
+      <button ion-item menuClose (click)="openPage(outgoPage)">
+        Витрати
+      </button>
+      <button ion-item menuClose (click)="openPage(todoPage)">
+        Зробити
+      </button>
+      <button ion-item menuClose (click)="openPage(tobuyPage)">
+        Купити
+      </button>
+      <button ion-item menuClose (click)="openPage(deptPage)">
+        Борги
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>

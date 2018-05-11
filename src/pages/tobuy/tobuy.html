@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="primary" (click)="doLogout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+      <button ion-button icon-only color="primary" (click)="openMenu()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>Купити</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list *ngIf="tobuys">
+
+    <ion-item *ngFor="let tobuy of tobuys">
+      <h2>{{ tobuy.title }}</h2>
+      <p>{{ tobuy.comment }}</p>
+      <p>{{ tobuy.price }}</p>
+
+      <p item-end>{{ tobuy.time | date }}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
